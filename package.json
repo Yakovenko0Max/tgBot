@@ -1,0 +1,31 @@
+{
+  "name": "tgbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yakovenko0Max/tgBot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yakovenko0Max/tgBot/issues"
+  },
+  "homepage": "https://github.com/Yakovenko0Max/tgBot#readme",
+  "dependencies": {
+    "compress-images": "^2.0.4",
+    "get-pixels": "^3.3.3",
+    "node-telegram-bot-api": "0.56.0",
+    "nodemon": "^2.0.15",
+    "telegraf": "^4.5.2"
+  },
+  "devDependencies": {
+    "gulp-imagemin": "^8.0.0"
+  }
+}
