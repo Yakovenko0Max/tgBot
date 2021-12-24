@@ -14,26 +14,41 @@ bot.start((ctx) => {
 bot.help((ctx) => {
     ctx.reply('Я отправляю готовую ссылку, где ты можешь посмотреть стрим или видео. За тобой только ник(Напиши его правильно пж)') 
     });   
-
     bot.hears('Twitch', ctx => {
+        ctx.reply('Напишите название канала twitch')
         ctx.reply('https://www.twitch.tv\n\nhttps://streamersbase.ru \n↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ \nЗдесь можно чекнуть био стримера')
+        bot.on('text', ctx => {
+                ctx.reply(`https://www.twitch.tv/${ctx.message.text}`) //поиск по twitch
+                
+        });
     });
     bot.hears('YouTube', ctx => {
+        ctx.reply('Напишите название канала youtube')
         ctx.reply('https://www.youtube.com')
+        bot.on('text', ctx => {
+             
+                ctx.reply(`https://www.youtube.com/c/${ctx.message.text}`) //поиск по youtube
+        });
     });
     bot.hears('Здесь я', ctx => {
         ctx.reply('https://vk.com/wiwipower\n\nTg - @Mavak1')
     });
-    
-    bot.on('text', ctx => {
-        console.log(ctx.message);
-        
-            ctx.reply(`https://www.twitch.tv/${ctx.message.text}\n\n\nhttps://www.youtube.com/c/${ctx.message.text}`) //поиск по twitch и youtube
+    bot.hears('nigger', ctx => {
+        ctx.replyWithPhoto(
+            'https://img.prosports.kz/news/content//202110/210228_5a4addeafe70e069e358d98a58b1d2a7.png',
+            {
+                caption: 'Отлетаешь в бан, друг'
+            }
+        )
     });
-
-   
-   
-   
+    bot.hears('пидор', ctx => {
+        ctx.replyWithPhoto(
+            'https://img.prosports.kz/news/content//202110/210228_5a4addeafe70e069e358d98a58b1d2a7.png',
+            {
+                caption: 'Отлетаешь в бан, друг'
+            }
+        )
+    }); 
 bot.launch() 
 
 
