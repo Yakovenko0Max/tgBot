@@ -20,6 +20,7 @@
   "homepage": "https://github.com/Yakovenko0Max/tgBot#readme",
   "dependencies": {
     "compress-images": "^2.0.4",
+    "dotenv": "^10.0.0",
     "get-pixels": "^3.3.3",
     "node-telegram-bot-api": "0.56.0",
     "nodemon": "^2.0.15",

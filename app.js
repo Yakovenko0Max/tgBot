@@ -1,37 +1,39 @@
 const { Telegraf } = require('telegraf')
 
-const bot = new Telegraf('5026206926:AAEfVlPQLaqpeVGzGg3GZeWR0Vud7csPE6E') //сюда помещается токен, который дал botFather
+require('dotenv').config();
+const bot = new Telegraf(process.env.token);
  
 bot.start((ctx) => {
-    ctx.reply('Привет!Хочешь найти питомца? Я помогу тебе в этом.\nЕсли хочешь узнать мой функционал, напиши /help', {
+    ctx.reply('Привет!Хочешь чекнуть стрим или видео? Я помогу тебе в этом.\nЕсли хочешь узнать мой функционал, напиши /help', {
             "reply_markup": {
-                "keyboard": [["Кот","Собака"], ["Кролик","Паук"]]
+                "keyboard": [["Twitch","YouTube"], ["Здесь я"]]
             }
         })
     });
 
 bot.help((ctx) => {
-    ctx.reply('Я отправляю готовую ссылку, где ты можешь купить понравившегося питомца. За тобой только выбрать') 
+    ctx.reply('Я отправляю готовую ссылку, где ты можешь посмотреть стрим или видео. За тобой только ник(Напиши его правильно пж)') 
     });   
 
-    bot.hears('Кот', ctx => {
-        ctx.reply('Приятного поиска\nhttps://www.avito.ru/moskva/koshki')
-    })
-    bot.hears('Собака', ctx => {
-        ctx.reply('Приятного поиска\nhttps://www.avito.ru/moskva/sobaki')
-    })
-    bot.hears('Кролик', ctx => {
-        ctx.reply('Приятного поиска\nhttps://www.avito.ru/moskva/drugie_zhivotnye?q=кролик')
-    })
-    bot.hears('Паук', ctx => {
-        ctx.replyWithHTML(`<b> Серьезно ты выбрал это? </b>`+ `\nhttps://www.avito.ru/moskva/drugie_zhivotnye?q=пауки`)
-    })
+    bot.hears('Twitch', ctx => {
+        ctx.reply('https://www.twitch.tv\n\nhttps://streamersbase.ru \n↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ \nЗдесь можно чекнуть био стримера')
+    });
+    bot.hears('YouTube', ctx => {
+        ctx.reply('https://www.youtube.com')
+    });
+    bot.hears('Здесь я', ctx => {
+        ctx.reply('https://vk.com/wiwipower\n\nTg - @Mavak1')
+    });
     
     bot.on('text', ctx => {
-        ctx.reply('Я глупый и не понимаю, что вы написали(0(')
+        console.log(ctx.message);
+        
+            ctx.reply(`https://www.twitch.tv/${ctx.message.text}\n\n\nhttps://www.youtube.com/c/${ctx.message.text}`) //поиск по twitch и youtube
     });
-      
 
-bot.launch() // запуск бота
+   
+   
+   
+bot.launch() 
 
 
